@@ -1,0 +1,84 @@
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: white;
+  position: relative;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+/* NAV LINKS */
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item{
+  position: relative;
+  text-decoration: none;
+  padding: 10px 10px;
+  color: #888;
+  border-radius: 40px;
+  overflow: hidden;
+  transition: color 0.6s;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.nav-item::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #22c55e;
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path .6s cubic-bezier(0.4,0,0.2,1);
+}
+
+.nav-item:hover{
+  color: #fff;
+}
+
+.nav-item:hover::before{
+  clip-path: circle(100% at 50% 50%);
+}
+
+/* BURGER (hidden desktop) */
+.burger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+  /* show burger */
+  .burger {
+    display: block;
+  }
+
+  /* hide nav initially */
+  nav {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  /* show when active */
+  nav.active {
+    display: flex;
+  }
+
+}

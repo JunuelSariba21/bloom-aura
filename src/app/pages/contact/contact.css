@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* HERO */
+.contact-hero {
+  height: 300px;
+  background: url('/assets/images/jungle.jpg') center/cover;
+  position: relative;
+}
+
+.contact-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+.hero-content {
+  position: relative;
+  color: white;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+}
+
+/* MAIN */
+.contact-section {
+  display: flex;
+  gap: 40px;
+  padding: 50px;
+}
+
+/* FORM */
+.form-card {
+  flex: 1;
+  background: #f9fafb;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+textarea {
+  height: 120px;
+}
+
+.btn-primary {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #22c55e;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+}
+
+/* INFO */
+.info {
+  flex: 1;
+}
+
+.info-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.info-item span {
+  font-size: 20px;
+}
+
+/* MAP */
+.map {
+  height: 120px;
+  background: #dcefe3;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* EXPERIENCE */
+.experience {
+  background: #e6f4ea;
+  text-align: center;
+  padding: 60px;
+}
+
+.experience h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+.gallery {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.gallery img {
+  width: 250px;
+  border-radius: 20px;
+}

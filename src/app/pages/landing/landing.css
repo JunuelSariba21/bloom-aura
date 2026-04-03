@@ -1,0 +1,174 @@
+/* FONTS (optional but recommended) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url('../../assets/images/flowers.png') center/cover no-repeat;
+  position: relative;
+}
+
+.hero-overlay {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.2),
+    rgba(255,255,255,0.9)
+  );
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+/* BUTTONS */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-primary {
+  background: #22c55e;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-glass {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ESSENCE SECTION */
+.essence {
+  padding: 80px 60px;
+  background: #f3f4f6;
+}
+
+.tag {
+  color: #22c55e;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.essence h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin: 10px 0 40px;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.highlight img {
+  background: #fcd5ce;
+}
+
+/* CTA */
+.cta {
+  background: #dcefe3;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.cta-icon {
+  background: #22c55e;
+  color: white;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+.cta p {
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.cta-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cta-form input {
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  width: 250px;
+}
+
+.cta-form button {
+  background: #22c55e;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+}
