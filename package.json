@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy": "ng build --configuration production --base-href https://JunuelSariba21.github.io/bloom-aura/ && npx angular-cli-ghpages --dir=dist/bloom-aura/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:bloom-aura": "node dist/bloom-aura/server/server.mjs"
