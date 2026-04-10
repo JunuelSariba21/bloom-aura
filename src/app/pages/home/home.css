@@ -1,9 +1,23 @@
+/* GLOBAL FIX FOR HORIZONTAL SCROLL */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* HERO */
 .hero {
   height: 100vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
 
+  /* Fixed Background Image URL */
   background:
     linear-gradient(
       to bottom,
@@ -11,27 +25,20 @@
       rgba(0,0,0,0.6),
       rgba(0,0,0,0.9)
     ),
-    url('../../assets/images/homeBG.png');
+    url('https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?auto=format&fit=crop&w=1920&q=80');
 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
   position: relative;
 }
 
-body {
-  overflow-x: hidden;
-}
-
-
 .hero-overlay {
   height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-
-
   background: linear-gradient(
     to bottom,
     rgba(0,0,0,0.2),
@@ -44,6 +51,7 @@ body {
   text-align: center;
   color: white;
   max-width: 600px;
+  padding: 0 20px;
 }
 
 .hero h1 {
@@ -58,7 +66,6 @@ body {
     #8d6e63,  /* soil tone */
     #1b5e20
   );
-
   background-size: 400%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -72,6 +79,7 @@ body {
   50% { background-position: 100%; }
   100% { background-position: 0%; }
 }
+
 .hero p {
   margin: 15px 0;
 }
@@ -84,197 +92,154 @@ body {
   border-radius: 20px;
   color: white;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
 
 /* FEATURED */
 .featured {
   overflow: hidden;
-  width: 100%;
+  width: 100vw; /* Safely bounds to viewport width */
   padding: 40px;
-}
-
-.featured::-webkit-scrollbar {
-  display: none;
-}
-
-.featured {
-  scrollbar-width: none;
 }
 
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .view-all {
   color: green;
   cursor: pointer;
+  text-decoration: none;
 }
 
+/* INFINITE SCROLL GRID */
 .flower-grid {
-  padding-left: 100px;
+  padding-left: 40px;
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 16rem;
+  grid-auto-columns: 18rem; 
   gap: 50px;
   width: max-content;
-  scrollbar-width: none;
-  animation: scroll 15s linear infinite;
+  animation: scroll 20s linear infinite; 
 }
-
-.flower-grid::-webkit-scrollbar {
-  display: none;
-}
-
-.flower-grid {
-  scrollbar-width: none;
-}
-
 
 .flower-grid:hover {
   animation-play-state: paused;
 }
 
 @keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
+/* 3D CARDS */
 .flower-card {
-  overflow: hidden;
-  background: #f1f5f2;
-  padding: 10px;
-  border-radius: 15px;
   width: 100%;
+  perspective: 1000px; 
+  height: 380px; 
 }
 
-.flower-card img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.flower-card:hover{
-  transform: scale(1.15);
+.flower-card:hover {
+  transform: scale(1.05); 
   z-index: 10;
-  /* transform: rotate(360deg);
-  transition: 2s; */
 }
 
-.flower-card-inner{
+.flower-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.9s;
+  transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1); 
   transform-style: preserve-3d;
 }
 
-.flower-card:hover .flower-card-inner{
+.flower-card:hover .flower-card-inner {
   transform: rotateY(180deg);
 }
 
-.card-front,.card-back{
+.card-front, .card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   backface-visibility: hidden;
-  border-radius: 1rem;
-
+  border-radius: 15px; 
+  overflow: hidden; 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.card-back{
+.card-front {
+  background: #f1f5f2;
+}
+
+.card-front img {
+  width: 100%;
+  height: 250px; 
+  object-fit: cover;
+}
+
+.card-front h4 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.card-front span {
+  color: green;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* BACK OF CARD */
+.card-back {
   transform: rotateY(180deg);
   background: #3E0F1C;
   color: #FFD1DC;
-  overflow: hidden;
+  justify-content: center;
+  padding: 20px;
 }
 
-.card-back::before{
+.card-back::before {
   content: '';
   position: absolute;
-  width: 120px;
-  height: 120%;
-  background: linear-gradient(180deg,
-  #00b7ff,#ff30ff);
+  width: 150%;
+  height: 150%;
+  background: linear-gradient(180deg, #00b7ff, #ff30ff);
   animation: rotate 3s linear infinite;
+  z-index: -2;
 }
 
-@keyframes rotate{
-  from{
-    transform: rotate(0deg);
-  }
-  to{
-    transform: rotate(360deg);
-  }
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.card-back::after{
+.card-back::after {
   content: '';
   position: absolute;
   inset: 5px;
   background: #07182e;
-  border-radius: 15px;
-
+  border-radius: 10px;
+  z-index: -1;
 }
 
-.card-back p{
-  font-size: 25px;
+.card-back p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  z-index: 1;
 }
 
-.flower-card h4 {
-  margin-top: 10px;
-}
-
-.flower-card span {
-  color: green;
-  font-size: 12px;
-}
-
-/* COLORS */
-.colors {
-  background: #dcefe3;
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.color-grid {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 20px;
-}
-
-.circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin: auto;
-}
-
-.red { background: #ef4444; }
-.yellow { background: #facc15; }
-.blue { background: #3b82f6; }
-.purple { background: #a855f7; }
-
-/* GALLERY */
+/* GALLERY SECTION */
 .gallery {
   padding: 40px;
-}
-
-.btn-outline {
-  border: 1px solid green;
-  background: transparent;
-  padding: 8px 15px;
-  border-radius: 20px;
-  color: green;
+  width: 100vw;
 }
 
 .gallery-grid {
@@ -287,6 +252,11 @@ body {
 .gallery-grid img {
   width: 100%;
   border-radius: 15px;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
 }

@@ -1,0 +1,38 @@
+<section class="detail-hero" [ngStyle]="{'background-image': 'url(' + flowerData.heroImage + ')'}">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <a [routerLink]="['/category', flowerData.categoryId]" class="back">← Back to {{ flowerData.categoryId | titlecase }}</a>
+    <h1>{{ flowerData.name }}</h1>
+    <p class="subtitle">{{ flowerData.subtitle }}</p>
+  </div>
+</section>
+
+<section class="content">
+
+  <div class="main">
+    <h3 class="section-title">SYMBOLISM & MEANING</h3>
+    <p class="desc">{{ flowerData.description }}</p>
+
+    <div class="meaning-box">
+      <h4>🌿 The Language of Petals</h4>
+      <div class="grid">
+        <div *ngFor="let meaning of flowerData.meanings">
+          <strong>{{ meaning.title }}</strong>
+          <p>{{ meaning.text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="card outline">
+      <h4>Botanical Facts</h4>
+      <p><strong>Scientific Name:</strong> {{ flowerData.scientificName }}</p>
+      <p><strong>Origin:</strong> {{ flowerData.origin }}</p>
+      <p><strong>Season:</strong> {{ flowerData.season }}</p>
+      <p><strong>Height:</strong> {{ flowerData.height }}</p>
+    </div>
+  </div>
+
+</section>

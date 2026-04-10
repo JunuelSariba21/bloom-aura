@@ -1,4 +1,3 @@
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>Discover Nature's<br>Diversity</h1>
@@ -10,88 +9,33 @@
   </div>
 </section>
 
-<!-- VARIETIES -->
 <section class="varieties">
-  <h2>Botanical Varieties</h2>
+  <h2>Botanical Categories</h2>
 
   <div class="grid">
-
-    <!-- CARD -->
-    <div  class="card"><a routerLink="/rose-gallery" style="text-decoration: none;">
-      <span class="badge red">PASSION</span>
-      <img src="rose1.png">
-      <h3>Roses: Love & Tradition</h3>
-      <p>Timeless symbols of love and beauty.</p>
+    
+    <a *ngFor="let category of botanicalCategories" [routerLink]="category.route" class="card">
+      <span class="badge" [ngClass]="category.badgeColor">{{ category.badgeText }}</span>
+      <img [src]="category.image" [alt]="category.title">
+      <h3>{{ category.title }}</h3>
+      <p>{{ category.description }}</p>
       <div class="tags">
-        <span>Grandiflora</span>
-        <span>Floribunda</span>
+        <span *ngFor="let tag of category.tags">{{ tag }}</span>
       </div>
-      </a>
-    </div>
-
-    <div class="card">
-      <span class="badge yellow">JOY</span>
-      <img src="assets/images/sunflower.jpg">
-      <h3>Sunflowers: Adoration</h3>
-      <p>Bright flowers that follow the sun.</p>
-      <div class="tags">
-        <span>Mammoth</span>
-        <span>Russian</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="badge blue">SERENITY</span>
-      <img src="assets/images/hydrangea.jpg">
-      <h3>Hydrangeas: Gratitude</h3>
-      <p>Soft blooms symbolizing appreciation.</p>
-      <div class="tags">
-        <span>Mophead</span>
-        <span>Lacecap</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="badge purple">ROYALTY</span>
-      <img src="assets/images/orchid.jpg">
-      <h3>Orchids: Strength</h3>
-      <p>Exotic and resilient flowers.</p>
-    </div>
-
-    <div class="card">
-      <span class="badge gray">PURITY</span>
-      <img src="assets/images/lily.jpg">
-      <h3>Lilies: Rebirth</h3>
-      <p>Associated with renewal and purity.</p>
-    </div>
-
-    <div class="card">
-      <span class="badge pink">GRACE</span>
-      <img src="assets/images/peony.jpg">
-      <h3>Peonies: Prosperity</h3>
-      <p>Symbols of wealth and honor.</p>
-    </div>
-
-    <div class="card">
-      <span class="badge orange">ENERGY</span>
-      <img src="assets/images/ranunculus.jpg">
-      <h3>Ranunculus: Charm</h3>
-      <p>Radiant blooms full of energy.</p>
-    </div>
+    </a>
 
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
-  <h2>Botanical Varieties</h2>
+  <h2>Start Your Collection</h2>
   <p>
-    Ready to craft the perfect bouquet? Explore over 200 species
-    and their cultural meanings.
+    Ready to craft the perfect bouquet? Explore over 200 distinct species
+    and their deep cultural meanings in our full index.
   </p>
 
   <div class="buttons">
-    <button class="btn-primary">View Full Gallery</button>
+    <button class="btn-primary">View Full Index</button>
     <button class="btn-outline">Gift Guide</button>
   </div>
 </section>

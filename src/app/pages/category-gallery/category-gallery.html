@@ -1,0 +1,25 @@
+<section class="hero" [ngStyle]="{'background-image': 'url(' + categoryData.heroImage + ')'}">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <h1>{{ categoryData.title }}</h1>
+    <p>{{ categoryData.description }}</p>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="header">
+    <div>
+      <span class="tag">{{ categoryData.tag }}</span>
+      <h2>Interactive Gallery</h2>
+    </div>
+    <p class="hint">Hover over each bloom to discover meaning</p>
+  </div>
+
+  <div class="cards">
+    <a *ngFor="let flower of categoryData.flowers" [routerLink]="['/flower', flower.id]" class="card">
+      <img [src]="flower.image" [alt]="flower.name">
+      <span>{{ flower.name }}</span>
+    </a>
+  </div>
+</section>
