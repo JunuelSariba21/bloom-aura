@@ -8,5 +8,9 @@ export const serverRoutes: ServerRoute[] = [
   {
     path: 'category/:id',
     renderMode: RenderMode.Server
-  }
+  },
+  {
+    path: 'flower/:id',
+    renderMode: RenderMode.Server
+  },
 ];
